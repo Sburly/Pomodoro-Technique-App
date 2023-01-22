@@ -1,0 +1,129 @@
+.main__article {
+    width: 100%;
+}
+
+.main__article section {
+    width: 35%;
+}
+
+.container-timer {
+    background: var(--base-light);
+    padding: 2em;
+    border-radius: 10px;
+}
+
+.container-timer main {
+    margin: 1em 0;
+}
+
+.timer {
+    font-size: 150px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.container-timer__container--button-switch {
+    gap: 0.5em;
+    font-size: 18px;
+}
+
+.button-switch {
+    border: none;
+    border-radius: 5px;
+    padding: 0.2em 0.7em;
+    color: var(--white);
+    background: var(--base-light);
+}
+
+.button-switch--selected {
+    font-weight: 700;
+    background: var(--base-dark);
+}
+
+.button-start {
+    color: var(--base);
+    font-size: 28px;
+    font-weight: 700;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5em 3em;
+    box-shadow: 0px 7px var(--muted-light);
+}
+
+.container-info {
+    margin-top: 0.5em;
+    align-items: flex-end;
+    justify-content: space-between;
+    color: var(--white);
+}
+
+.container-info div:first-of-type {
+    font-weight: 700;
+    font-size: 25px;
+}
+
+.container-info div:last-of-type {
+    font-size: 18px;
+}
+
+.user__header {
+    margin-top: 3em;
+    justify-content: space-between;
+    border-bottom: 3px solid var(--white);
+    padding-bottom: 0.5em;
+}
+
+.user__header h2 {
+    font-size: 20px;
+    font-weight: 700;
+    color: var(--white);
+}
+
+.user__header button {
+    background: var(--base-light);
+    border: none;
+    border-radius: 5px;
+    height: 2em;
+}
+
+.user__button button {
+    width: 100%;
+    height: 3.5em;
+    background: var(--base-dark);
+    border: 4px dashed var(--muted-light);
+    border-radius: 10px;
+    color: var(--muted-light);
+    font-size: 20px;
+    font-weight: 700;
+}
+
+.pomodoro {
+    background: var(--white);
+    margin: 0.5em 0;
+    justify-content: space-between;
+    border-left: 10px solid var(--black);
+    border-radius: 5px;
+    height: 3.5em;
+    padding: 0.7em 1em;
+}
+
+.pomodoro div h3 {
+    font-size: 20px;
+    font-weight: 700;
+    padding: 0;
+    margin: 0 0.2em;
+}
+
+.pomodoro__button--edit {
+    background: var(--white);
+    border: 2px solid var(--black);
+    border-radius: 5px;
+    height: 2em;
+    padding: 0;
+    height: 2.2em;
+    width: 2.2em;
+}
+
+.pomodoro__button--edit path {
+    fill: var(--black);
+}

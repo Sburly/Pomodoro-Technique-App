@@ -1,0 +1,86 @@
+:root {
+    --base: #BA4949;
+    --base-light: #C15C5C;
+    --base-dark: #A44E4E;
+
+    --white: #fff;
+    --black: #000;
+
+    --muted-light: #D9D9D9;
+    --muted: #AAAAAA;
+    --muted-dark: #373737;
+    --text: #5e6d7a;
+
+    --transition: all 200ms ease-in-out;
+}
+
+:root.sb {
+    --base: #38858A;
+    --base-light: #4C9196;
+    --base-dark: #417B80;
+}
+
+:root.lb {
+    --base: #397097;
+    --base-light: #4D7FA2;
+    --base-dark: #426C8A;
+}
+
+html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    background: var(--base);
+}
+
+.button--classic {
+    background: var(--base-light);
+    border: none;
+    border-radius: 5px;
+    transition: var(--transition);
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--white);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.button--classic:hover {
+    color: var(--black);
+}
+
+.button--classic:hover #icon--settings {
+    stroke: var(--black) !important;
+}
+
+.button--transparent {
+    border: none;
+    background: none;
+}
+
+#icon--settings {
+    stroke: var(--white);
+    transition: var(--transition);
+}
+
+.main {
+    margin-top: 2.5em;
+}
+
+.flexCol {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.flexRow {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+}
