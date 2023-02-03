@@ -1,0 +1,18 @@
+<section class="user__header flexRow">
+    <h2>Tasks</h2>
+    <button class="flexCol"><%- partial('svgs/list') %></button>
+</section>
+<section>
+    <% if(pomodoros) { %> 
+        <% for(let pomo of pomodoros) { %> 
+            <%- partial('pomodoro', { pomo }) %>
+        <% } %>
+    <% } %>
+    <%- partial('addForm') %>
+</section>
+<section class="user__button">
+    <button id="addFormButton">Add task</button>
+</section>
+<script src="js/addForm.js"></script>
+<script src="js/editForm.js"></script>
+<script src="js/menu.js"></script>

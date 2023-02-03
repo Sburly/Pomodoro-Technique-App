@@ -67,7 +67,7 @@
 }
 
 .user__header {
-    margin-top: 3em;
+    margin: 3em 0 1em 0;
     justify-content: space-between;
     border-bottom: 3px solid var(--white);
     padding-bottom: 0.5em;
@@ -95,16 +95,26 @@
     color: var(--muted-light);
     font-size: 20px;
     font-weight: 700;
+    margin-bottom: 2em;
 }
 
 .pomodoro {
     background: var(--white);
     margin: 0.5em 0;
-    justify-content: space-between;
-    border-left: 10px solid var(--black);
     border-radius: 5px;
-    height: 3.5em;
+    min-height: 3.5em;
     padding: 0.7em 1em;
+    border-left: 10px solid var(--muted);
+    cursor: pointer;
+}
+
+.pomodoro.selected {
+    border-left: 10px solid var(--black);
+}
+
+.pomo--upper {
+    width: 100%;
+    justify-content: space-between;
 }
 
 .pomodoro div h3 {
@@ -126,4 +136,107 @@
 
 .pomodoro__button--edit path {
     fill: var(--black);
+}
+
+.pomodoro p {
+    background: var(--muted-light);
+    margin-top: 0.7em;
+    width: 100%;
+    word-wrap: break-word;
+    padding: 0.3em;
+    border-radius: 5px;
+    font-size: 18px;
+}
+
+.form--pomodoro {
+    background: var(--white);
+    margin: 0.5em 0;
+    border-left: 10px solid var(--black);
+    border-radius: 5px;
+    padding: 0.7em 1em;
+}
+
+.form--pomodoro__title {
+    width: 100%;
+    border: none;
+    font-size: 25px;
+    font-weight: 700;
+    margin: 0.5em 0;
+}
+
+.form--pomodoro__title::placeholder {
+    color: var(--muted-light);
+}
+
+.form--pomodoro__title:focus,
+.form--pomodoro__description:focus,
+.form--pomodoro__num:focus {
+    outline-width: 0;
+}
+
+.form--pomodoro__description {
+    resize: none;
+    width: 100%;
+    border: none;
+    background: var(--muted-light);
+    padding: 0.5em;
+    font-size: 18px;
+    border-radius: 5px;
+}
+
+.form--pomodoro__buttons-container {
+    margin: 1.5em 0 1em 0;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.form--pomodoro__num {
+    border: none;
+    background: var(--muted-light);
+    width: 2.5em;
+    padding: 0.3em;
+    font-size: 18px;
+    border-radius: 5px;
+    margin-right: 1.5em;
+}
+
+.form--pomodoro__buttons-container div:first-child {
+    justify-content: space-between;
+    height: 100%;
+}
+
+.buttons--up-down {
+    height: 100%;
+}
+
+.form--pomodoro__buttons-container__button {
+    height: 100%;
+    border: 2px solid var(--black);
+    border-radius: 5px;
+    background: var(--white);
+    padding: 0.5em;
+    box-shadow: 2px 1px var(--muted-light);
+    margin-right: 0.3em;
+}
+
+.pomodoro__menu {
+    background: var(--white);
+    width: 7em;
+    border: 2px solid var(--black);
+    border-radius: 5px;
+    padding: 0.5em;
+    z-index: 10;
+    position: fixed;
+}
+
+.pomodoro__menu div, 
+.pomodoro__menu form {
+    padding: 0.2em 0;
+    width: 100%;
+    justify-content: flex-start;
+    gap: 0.5em;
+}
+
+.pomodoro__menu div:first-child {
+    border-bottom: 2px solid var(--black);
 }

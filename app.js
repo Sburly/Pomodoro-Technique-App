@@ -8,6 +8,10 @@ const engine = require("ejs-locals");
 const bodyParser = require('body-parser');
 const mongoSanitize = require("express-mongo-sanitize");
 
+// Imports
+const Pomodoro = require("./models/pomodoro");
+const { validatePomodoro } = require("./middleware");
+
 // Express App Settings
 const app = express();
 let port = 5000;
@@ -33,8 +37,33 @@ db.once("open", () => console.log("Database connected"));
 app.use(mongoSanitize({ replaceWith: "_" }));
 
 // Routes
-app.get("/", (req, res) => {
-    res.render("home");
+app.get("/", async(req, res) => {
+    const pomodoros = await Pomodoro.find({});
+    res.render("home", { pomodoros });
+});
+
+app.post("/", validatePomodoro, async(req, res) => {
+    for (let i = 0; i < Number(req.body.num); i++) {
+        let pomo = {
+            title : req.body.title,
+            description : req.body.description,
+            date : new Date()
+        };
+        const pomodoro = new Pomodoro(pomo);
+        await pomodoro.save();
+    };
+    res.redirect("/");
+});
+
+app.patch("/:id", validatePomodoro, async(req, res) => {
+    const pomo = await Pomodoro.findByIdAndUpdate(req.params.id, req.body);
+    await pomo.save();
+    res.redirect("/");
+});
+
+app.delete("/:id", async(req, res) => {
+    await Pomodoro.findByIdAndDelete(req.params.id);
+    res.redirect("/");
 });
 
 // App Listening

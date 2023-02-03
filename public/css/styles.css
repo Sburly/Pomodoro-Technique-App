@@ -84,3 +84,21 @@ body {
     align-items: center;
     justify-content: center;
 }
+
+.button-save {
+    border: none;
+    background: var(--muted-dark);
+    padding: 0.5em 1em;
+    border-radius: 5px;
+    color: var(--white);
+    font-weight: 700;
+}
+
+.button--cancel {
+    font-weight: 700;
+    margin-right: 1em;
+}
+
+.noDisplay {
+    display: none;
+}

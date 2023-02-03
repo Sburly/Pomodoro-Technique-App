@@ -1,0 +1,21 @@
+<form class="form--pomodoro flexCol noDisplay" id="formPomodoro" method="post" action="/">
+    <input class="form--pomodoro__title" placeholder="What are u working on?" type="text" name="title" id="title">
+    <textarea class="form--pomodoro__description" name="description" id="description" cols="30"></textarea>
+    <div class="form--pomodoro__buttons-container flexRow">
+        <div class="flexRow">
+            <input class="form--pomodoro__num" id="addFormNumberInput" type="num" name="num" id="num" min="0" step="1" value="1">
+            <div class="buttons--up-down flexRow">
+                <button type="button" class="form--pomodoro__buttons-container__button flexCol" id="addFormNumberUp">
+                    <%- partial('svgs/arrow-up') %>
+                </button>
+                <button type="button" class="form--pomodoro__buttons-container__button flexCol" id="addFormNumberDown">
+                    <%- partial('svgs/arrow-down') %>
+                </button>
+            </div>
+        </div>
+        <div class="flexRow">
+            <button type="button" class="button--transparent button--cancel" id="cancelFormButton">Cancel</button>
+            <button type="submit" class="button-save" id="saveFormButton">Save</button>
+        </div>
+    </div>
+</form>

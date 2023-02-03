@@ -25,7 +25,6 @@ const Joi = BaseJoi.extend(extension);
 
 module.exports.pomoSchema = Joi.object({
     title: Joi.string().required().escapeHTML(),
-    description: Joi.string().escapeHTML(),
-    timer: Joi.number().required(),
-    date: Joi.date().required().escapeHTML()
+    description: Joi.string().optional().allow("").escapeHTML(),
+    num: Joi.number().optional()
 });

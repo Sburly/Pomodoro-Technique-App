@@ -1,9 +1,11 @@
 const mongoose = require("mongoose");
 
 const PomoSchema = new mongoose.Schema({
-    timer: Number,
     title: String,
-    description: String,
+    description: {
+        type: String, 
+        required: false
+    },
     date: Date
 });
 

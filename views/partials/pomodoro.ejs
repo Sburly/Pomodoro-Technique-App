@@ -1,0 +1,23 @@
+<div class="pomodoro flexCol" data-pomo="<%= pomo._id %>">
+    <div class="pomo--upper flexRow">
+        <div class="flexRow">
+            <button class="button--transparent"><%- partial('svgs/check-circle') %></button>
+            <h3><%= pomo.title %></h3>
+        </div>
+        <button id="showMenu" class="pomodoro__button--edit" data-pomo="<%= pomo._id %>"><%- partial('svgs/list-real', { pomo }) %></button>
+    </div>
+    <% if(pomo.description) { %>
+        <p><%= pomo.description %></p>
+    <% } %>
+</div>
+
+<%- partial('editForm', { pomo }) %>
+
+<div id="menu" data-pomo="<%= pomo._id %>" class="noDisplay pomodoro__menu flexCol">
+    <div class="flexRow">
+        <button class="button--transparent" id="editFormBtn" data-pomo="<%= pomo._id %>"><%- partial('svgs/pencil') %> Edit</button>
+    </div>
+    <form class="flexRow" method="POST" action="/<%= pomo._id %>?_method=DELETE">
+        <button class="button--transparent"><%- partial('svgs/trash') %> Delete</button>
+    </form>
+</div>
