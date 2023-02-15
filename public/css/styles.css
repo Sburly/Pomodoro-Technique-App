@@ -1,8 +1,4 @@
 :root {
-    --base: #BA4949;
-    --base-light: #C15C5C;
-    --base-dark: #A44E4E;
-
     --white: #fff;
     --black: #000;
 
@@ -12,6 +8,12 @@
     --text: #5e6d7a;
 
     --transition: all 200ms ease-in-out;
+}
+
+:root.default {
+    --base: #BA4949;
+    --base-light: #C15C5C;
+    --base-dark: #A44E4E;
 }
 
 :root.sb {
@@ -60,6 +62,7 @@ body {
 .button--transparent {
     border: none;
     background: none;
+    text-decoration: none;
 }
 
 #icon--settings {

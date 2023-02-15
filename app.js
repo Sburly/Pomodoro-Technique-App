@@ -7,10 +7,12 @@ const methodOverride = require("method-override");
 const engine = require("ejs-locals");
 const bodyParser = require('body-parser');
 const mongoSanitize = require("express-mongo-sanitize");
+const catchAsync = require("./utilities/catchAsync");
 
 // Imports
 const Pomodoro = require("./models/pomodoro");
 const { validatePomodoro } = require("./middleware");
+const ExpressError = require("./utilities/ExpressError");
 
 // Express App Settings
 const app = express();
@@ -37,12 +39,12 @@ db.once("open", () => console.log("Database connected"));
 app.use(mongoSanitize({ replaceWith: "_" }));
 
 // Routes
-app.get("/", async(req, res) => {
+app.get("/", catchAsync(async(req, res) => {
     const pomodoros = await Pomodoro.find({});
     res.render("home", { pomodoros });
-});
+}));
 
-app.post("/", validatePomodoro, async(req, res) => {
+app.post("/", validatePomodoro, catchAsync(async(req, res) => {
     for (let i = 0; i < Number(req.body.num); i++) {
         let pomo = {
             title : req.body.title,
@@ -53,17 +55,28 @@ app.post("/", validatePomodoro, async(req, res) => {
         await pomodoro.save();
     };
     res.redirect("/");
-});
+}));
 
-app.patch("/:id", validatePomodoro, async(req, res) => {
+app.patch("/:id", validatePomodoro, catchAsync(async(req, res) => {
     const pomo = await Pomodoro.findByIdAndUpdate(req.params.id, req.body);
     await pomo.save();
     res.redirect("/");
-});
+}));
 
-app.delete("/:id", async(req, res) => {
+app.delete("/:id", catchAsync(async(req, res) => {
     await Pomodoro.findByIdAndDelete(req.params.id);
     res.redirect("/");
+}));
+
+app.all("*", (req, res, next) => {
+    const error = new ExpressError("Page Not Found", 404);
+    next(error);
+});
+
+app.use((err, req, res, next) => {
+    const { statusCode = 500 } = err;
+    if (!err.message) err.message = "Something went wrong";
+    res.status(statusCode).render("error", { err });
 });
 
 // App Listening
