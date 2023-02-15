@@ -1,10 +1,15 @@
-<form class="form--pomodoro flexCol noDisplay" id="formEditPomodoro" data-pomo="<%= pomo._id %>" method="post" action="/<%= pomo._id %>?_method=PATCH">
-    <input class="form--pomodoro__title" placeholder="What are u working on?" type="text" name="title" id="title" value="<%= pomo.title %>">
-    <textarea class="form--pomodoro__description" name="description" id="description" cols="30"><%= pomo.description %></textarea>
-    <div class="form--pomodoro__buttons-container flexRow">
-        <div class="flexRow">
-            <button type="button" class="button--transparent button--cancel" data-pomo="<%= pomo._id %>" id="cancelEditFormButton">Cancel</button>
-            <button type="submit" class="button-save" id="saveEditFormButton">Save</button>
+<div class="form--pomodoro noDisplay flexCol" id="formEditPomodoro" data-pomo="<%= pomo._id %>">
+    <form class="form--pomodoro--delete flexRow" id="deleteBtn" method="POST" action="/<%= pomo._id %>?_method=DELETE">
+        <button type="submit" class="button--transparent"><%- partial('svgs/cross') %></button>
+    </form>
+    <form class="form--pomodoro--edit flexCol" data-pomo="<%= pomo._id %>" method="post" action="/<%= pomo._id %>?_method=PATCH">
+        <input class="form--pomodoro__title" placeholder="What are u working on?" type="text" name="title" id="title" value="<%= pomo.title %>">
+        <textarea class="form--pomodoro__description" name="description" id="description" cols="30"><%= pomo.description %></textarea>
+        <div class="form--pomodoro__buttons-container flexRow">
+            <div class="flexRow">
+                <button type="button" class="button--transparent button--cancel" data-pomo="<%= pomo._id %>" id="cancelEditFormButton">Cancel</button>
+                <button type="submit" class="button-save" id="saveEditFormButton">Save</button>
+            </div>
         </div>
-    </div>
-</form>
+    </form>
+</div>

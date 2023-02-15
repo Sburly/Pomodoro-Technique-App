@@ -2,6 +2,7 @@ const editFormButtons = document.querySelectorAll("#editFormBtn");
 const editForms = document.querySelectorAll("#formEditPomodoro");
 const cancelEditBtn = document.querySelectorAll("#cancelEditFormButton");
 const saveEditBtn = document.querySelectorAll("#saveEditFormButton");
+const deleteBtn = document.querySelectorAll("#deleteBtn");
 const editPomos = document.querySelectorAll(".pomodoro");
 
 for(let btn of [...cancelEditBtn, ...saveEditBtn]) {

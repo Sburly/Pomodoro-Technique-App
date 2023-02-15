@@ -148,6 +148,10 @@
     font-size: 18px;
 }
 
+.form--pomodoro form {
+    width: 100%;
+}
+
 .form--pomodoro {
     background: var(--white);
     margin: 0.5em 0;
@@ -161,7 +165,7 @@
     border: none;
     font-size: 25px;
     font-weight: 700;
-    margin: 0.5em 0;
+    margin-bottom: 0.5em;
 }
 
 .form--pomodoro__title::placeholder {
@@ -219,24 +223,7 @@
     margin-right: 0.3em;
 }
 
-.pomodoro__menu {
-    background: var(--white);
-    width: 7em;
-    border: 2px solid var(--black);
-    border-radius: 5px;
-    padding: 0.5em;
-    z-index: 10;
-    position: fixed;
-}
-
-.pomodoro__menu div, 
-.pomodoro__menu form {
-    padding: 0.2em 0;
-    width: 100%;
-    justify-content: flex-start;
-    gap: 0.5em;
-}
-
-.pomodoro__menu div:first-child {
-    border-bottom: 2px solid var(--black);
+.form--pomodoro--delete {
+    align-items: flex-end;
+    justify-content: flex-end;
 }
